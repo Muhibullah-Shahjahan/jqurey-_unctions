@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- font links -->
+
+    <!-- CSS links -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/media.css">
+    
+    <title>Js and Jquery Practice</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  </head>
+  <body>
+
+   <div> 
+      <button class="btn btn-primary" id="click"> Click to Hide </button>
+      <h1>Jquery Practice<span> 3.5.1</span></h1>
+      <br>
+      <br>
+      <br>
+      <br>
+      <p>Lets do the hide and show evnet.</p>
+      <button class="btn btn-secondary" id="hide">Hide</button>
+      <button class="btn btn-secondary" id="show">show</button>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <h2 class="toggle text-light bg-dark" >This is for toggling</h2>
+      <button class="btn btn-danger" id="tb">TOggle test</button>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div id="div1"  style="width:80%;height:80px;background-color:red; text-align: center;"></div><br>
+      <div id="div2"  style="width:80%;height:80px;background-color:green; text-align: center;"></div><br>
+      <div id="div3"  style="width:80%;height:80px;background-color:blue; text-align: center;"></div>
+      <button class="btn btn-info" id="fadeout">FAde TOGgle</button>
+       <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <h2>Lets try THe slide option.----</h2>
+      <div class="justify-content-center text-center">
+        <p class="btn btn-primary button d-lg-block m-0">See More</p>
+        <p class="slideto text-center" style="width: 100%; background-color: green; color: white;display: none; "> Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel eaque possimus placeat blanditiis quia nostrum corporis ipsa perspiciatis, distinctio veritatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel eaque possimus placeat blanditiis quia nostrum corporis ipsa perspiciatis, distinctio veritatis.  Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel eaque possimus placeat blanditiis quia nostrum corporis ipsa perspiciatis, distinctio veritatis.  </p>
+      </div>
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <h2 class="a_t d-block">ANimateTIme</h2>
+      <div class="justify-content-center text-center">
+        <p class="btn btn-primary buton d-lg-block m-0">See More</p>
+        <p class="slidetog text-center" style="width: 100%; background-color: green; color: white;display: none; "> Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel eaque possimus placeat blanditiis quia nostrum corporis ipsa perspiciatis, distinctio veritatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel eaque possimus placeat blanditiis quia nostrum corporis ipsa perspiciatis, distinctio veritatis.  Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel eaque possimus placeat blanditiis quia nostrum corporis ipsa perspiciatis, distinctio veritatis.  </p>
+      </div>
+
+      <br>
+      <br>
+
+      <p id="bton" >let us chill</p>
+      <div  id="bton_p" style="background:red;height:20px;width:20px;position:absolute;"></div>
+
+      <br>
+      <br>
+      <br>
+      <br>
+   </div>
+    <br>
+    <br>
+    <!-- JS  links -->
+   <script src="js/jquery-3.5.1.min.js"></script>
+   <script src="js/popper.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+
+   <script>
+     $(document).ready(function(){
+      $("#click").click(function(){
+        $("span").hide();
+      });
+      $("h1").mouseleave(function(){ 
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+                footer: '<a href>Why do I have this issue?</a>'
+              });
+      });
+
+      $("#hide").click(function(){
+        $("p").hide(1000);
+      });
+      $("#show").click(function(){
+        $('p').fadeIn(1000);
+      });
+      $("#tb").click(function(){
+        $(".toggle").fadeToggle();
+      });
+      $("p:first, #fadeout").hover(function(){
+        $("#div1").fadeToggle();
+        $("#div2").fadeToggle("2000");
+        $("#div3").fadeToggle("slow");
+      });
+      $("#fadeout").click(function(){
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Your work has been saved',
+          showConfirmButton: false,
+          timer: 1500
+          });
+      });
+      $(".button").click(function(){
+          $(".slideto").slideToggle(1500);
+      });
+      $(".a_t").mouseenter(function(){
+        $(this).animate({
+          width: "toggle"
+        }, 2000);
+      });
+      $(".buton").click(function(){
+        $(".slidetog").animate({
+          height:"toggle"
+        });
+      });
+       $("#bton").hover(function(){
+           var div = $("#bton_p");
+           div.animate({left:'100px', height: '400px', opacity: '0.4'}, "slow");
+           div.animate({width: '80%', opacity: '0.8'}, "slow");
+           div.animate({height: '100px', opacity: '0.4'}, "slow");
+           div.animate({left:'0', width: '100px', opacity: '0.8'}, "slow");
+      });
+        
+     });
+      
+   </script>  
+   <!-- <script type="text/javascript" src="js/script.js"></script> -->
+  </body>
+</html>
+
+ 
